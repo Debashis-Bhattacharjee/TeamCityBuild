@@ -58,6 +58,8 @@
 	  
 	   	  </sf:deploy> 
 	</target>
+	
+	
 
     <!-- Deploy a zip of metadata files to the org -->
     <target name="deployZip">
@@ -80,6 +82,11 @@
 	<!-- Shows deploying code and running tests only within the org namespace -->
 	<target name="deployCodeRunLocalTests">
 	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="manifest" rollbackOnError="true"  testlevel="RunLocalTests"/>
+	</target>
+	
+	<!-- Shows deploying code and running tests only within the org namespace -->
+	<target name="validateCodeRunLocalTests">
+	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="manifest" rollbackOnError="true"  testlevel="RunLocalTests" checkOnly="true"/>
 	</target>
 	
     <!-- Shows removing code; only succeeds if done after deployCode -->
